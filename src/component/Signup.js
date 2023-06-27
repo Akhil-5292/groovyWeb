@@ -63,6 +63,7 @@ function Signup(){
     }
     return(
         <div className="wrapper">
+             <h3>Signup page</h3>
           <input placeholder="UserName" onChange={validateUser} type="text"/>  
           <p>{userError}</p>
           <input placeholder="Email" onChange={validateEmail} type="email"/>  

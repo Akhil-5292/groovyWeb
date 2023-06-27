@@ -1,17 +1,16 @@
-// for add item
+//  for add item 
 
-export const addCart = (product)=>{
-    return {
+export const addCart=(product)=>{
+    return{
         type: "ADDITEM",
         payload: product
     }
 }
 
+//  for delete item 
 
-// for remove item
-
-export const delCart = (product)=>{
-    return {
+export const delCart=(product)=>{
+    return{
         type: "DELITEM",
         payload: product
     }

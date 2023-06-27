@@ -7,6 +7,7 @@ import Login from './component/Login';
 import Products from './component/Products';
 import Product from './component/Product';
 
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/products' element={<Products/>}/>
       <Route path='/products/:id' element={<Product/>}/>
+     
      </Routes>
     </div>
   );

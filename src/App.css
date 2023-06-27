@@ -1,14 +1,20 @@
-/* Navbar css */
-
-.navbar-nav a{
-  font-size: 18px;
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: aqua;
+    height: 100vh;
 }
 
-.wrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: aqua;
-  height: 100vh;
+
+.products{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+}
+
+.product{
+    display: flex;
+    justify-content: space-around;
 }

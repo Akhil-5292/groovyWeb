@@ -33,53 +33,58 @@ export default function Products() {
         )
     }
 
-    const filterProducts=(cat)=>{
-      const updatedList=data.filter((x)=>x.category===cat)
-      setFilter(updatedList)
+    const filterProduct = (cat) => {
+        const updatedList = data.filter((x) => x.category === cat)
+        setFilter(updatedList)
     }
     const ShowProducts = () => {
         return (
             <>
-            <div className="buttons d-flex justify-content-center mb-5 pb-5">
-                <button className="btn btn-outline-dark me-2" onClick={()=>setFilter(data)}>All</button>
-                <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("men's clothing")}>Men's Clothing</button>
-                <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("women's clothing")}>Women's Clothing</button>
-                <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("jewelery")}>Jewelery</button>
-                <button className="btn btn-outline-dark me-2" onClick={()=>filterProducts("electronics")}>Electronic</button>
-            </div>
-                {filter.map((product) => {
-                    return (
-                        <>
-                            <div className="col-md-3 mb-4" >
-                                <div class="card h-100 text-center p-4" key={product.id} style={{width: "18rem"}}>
-                                    <img src={product.image} class="card-img-top" alt={product.title} height='250px'/>
-                                        <div class="card-body">
-                                            <h5 class="card-title mb-0">{product.title.substring(0,12)}</h5>
-                                            <p class="card-text">${product.price}</p>
-                                            <Link to={`/products/${product.id}`} class="btn btn-primary">Buy Now</Link>
-                                        </div>
+                <div className="buttons d-flex justify-content-center" style={{gap:'5px'  }}>
+                    <button className="btn btn-outline-dark" onClick={() => setFilter(data)}>All</button>
+                    <button className="btn btn-outline-dark" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+                    <button className="btn btn-outline-dark" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
+                    <button className="btn btn-outline-dark" onClick={() => filterProduct("jewelery")}>Jewelery</button>
+                    <button className="btn btn-outline-dark" onClick={() => filterProduct("electronics")}>Electronics</button>
+                </div>
+                {
+                    filter.map((product) => {
+                        return (
+                            <>
+                                <div className="products">
+                                    <div class="card h-100" key={product.id} style={{width: '18rem'}}>
+                                        <img src={product.image} class="card-img-top" alt={product.title} height='250px'/>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{product.title}</h5>
+                                                <p class="card-text">${product.price}</p>
+                                                <Link to={`/products/${product.id}`} class="btn btn-primary">Buy Now</Link>
+                                            </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </>
-                    )
-                })}
+                            </>
+                        )
+                    })
+                }
             </>
         )
     }
+
+
     return (
-        <> 
-            <Navbar/>  
-         <div className="container my-5 py-5">
-            <div className="row">
-                <div className="col-12 mb-5">
-                    <h1 className="d-flex justify-content-center">Latest Products</h1>
-                    <hr />
+        <>
+            {/* <Navbar /> */}
+            <div className="container">
+                <div className="row">
+                    <h1 className="d-flex justify-content-center">
+                        Latest Products
+                    </h1>
+                    <hr/>
+                </div>
+                <div >
+                    {loading ? <Loading /> : <ShowProducts />}
                 </div>
             </div>
-            <div className="row justify-content-center">
-                {loading ? <Loading /> : <ShowProducts />}
-            </div>
-        </div>
+
         </>
 
     )

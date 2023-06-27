@@ -31,7 +31,7 @@ export default function Login(){
 
     return(
         <div className="wrapper">
-            <h3>Logon page</h3>
+            <h3>Login page</h3>
             <input type="text" placeholder="Email" onChange={handleEmail}/>
             <input type="password" placeholder="password" onChange={handlePassword}/>
             <input type="checkbox"/><p>Remember Me</p>
